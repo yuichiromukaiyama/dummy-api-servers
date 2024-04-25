@@ -2,6 +2,6 @@ FROM python:3.9-slim
 WORKDIR /app
 COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
-EXPOSE 5003
-ENV PORT=5003
-CMD ["python", "main.py"]
+EXPOSE 8000
+ENV PORT=8000
+CMD ["uvicorn", "server:app", "--host", "0.0.0.0"]
