@@ -29,8 +29,9 @@ class Task(BaseModel):
 
 
 @app.get("/weather")
-def get_weather(region: str, town: str, date: int):
-    print("access", region, town, date)  # date は割愛
+def get_weather(region: str, town: str, date: str):
+    # date は割愛。文字列日付の為、本来は PARSE して使用する。
+    print("access", region, town, date)
 
     try:
         return {"result": weather_data[region][town]}
